@@ -1,4 +1,5 @@
 ﻿using System;
+using DataStructuresAlgorithms.HashTable;
 
 namespace DataStructuresAlgorithms
 {
@@ -7,6 +8,8 @@ namespace DataStructuresAlgorithms
         public static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+            var ht = new HashTable<int>(5);
+            
         }
     }
 }
