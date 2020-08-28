@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace DataStructuresAlgorithms.Arrays
 {
-    internal class Arrays<T>
+    public class Arrays<T>
     {
         private readonly int size;
         private T[] array;

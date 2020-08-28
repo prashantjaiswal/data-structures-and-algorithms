@@ -2,7 +2,7 @@
 
 namespace DataStructuresAlgorithms.HashTable
 {
-    internal class HashTable<T>
+    public class HashTable<T>
     {
         private readonly int size;
         private Arrays<Arrays<T>> hashArray;
