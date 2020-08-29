@@ -49,6 +49,7 @@ namespace DataStructuresAlgorithms.LinkedList
                         previous = priorNode
                     };
                     priorNode.next = nodeToAdd;
+                    this.length += 1;
                     return nodeToAdd;
                 }
                 return default;
@@ -85,6 +86,7 @@ namespace DataStructuresAlgorithms.LinkedList
                 var nodeNextToOneWeAreDeleting = nodeToDelete.next;
                 priorNode.next = nodeNextToOneWeAreDeleting;
                 nodeNextToOneWeAreDeleting.previous = priorNode;
+                this.length -= 1;
                 return true;
             }
             return false;

@@ -82,5 +82,24 @@ namespace DataStructuresAlgorithms.LinkedList
             }
             return false;
         }
+
+        public void Reverse()
+        {
+            if(this.head.next == null){ }
+
+            this.tail = this.head;
+            Node<T> first = this.head;
+            Node<T> second = first.next;
+
+            while(second != null)
+            {
+                var temp = second.next;
+                second.next = first; // This is the trick
+                first = second; // traversal
+                second = temp; // traversal
+            }
+            this.head = first;
+            this.head.next = null;
+        }
     }
 }
