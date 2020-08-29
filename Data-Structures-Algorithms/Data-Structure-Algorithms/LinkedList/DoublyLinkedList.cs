@@ -1,4 +1,4 @@
-﻿using System;
+﻿using DataStructuresAlgorithms.LinkedList.Structure;
 namespace DataStructuresAlgorithms.LinkedList
 {
     public class DoublyLinkedList<T>
@@ -36,10 +36,29 @@ namespace DataStructuresAlgorithms.LinkedList
             return this.head;
         }
 
-        //public DoublyNode<T> Insert(T value)
-        //{
-
-        //}
+        public DoublyNode<T> Insert(T value, int position)
+        {
+            if (this.length > position)
+            {
+                var priorNode = Traverse(position - 1);
+                if (priorNode != default)
+                {
+                    var nodeToAdd = new DoublyNode<T>(value)
+                    {
+                        next = priorNode.next,
+                        previous = priorNode
+                    };
+                    priorNode.next = nodeToAdd;
+                    return nodeToAdd;
+                }
+                return default;
+            }
+            else
+            {
+                this.length += 1;
+                return this.Append(value);
+            }
+        }
 
         public DoublyNode<T> Traverse(int position)
         {
@@ -57,22 +76,18 @@ namespace DataStructuresAlgorithms.LinkedList
             return default;
         }
 
-        //public DoublyNode<T> Remove(int position)
-        //{
-
-        //}
-    }
-    public class DoublyNode<T>
-    {
-        public DoublyNode(T value)
+        public bool Remove(int position)
         {
-            this.value = value;
-            this.previous = null;
-            this.next = null;
+            var priorNode = Traverse(position - 1);
+            if(priorNode != default)
+            {
+                var nodeToDelete = priorNode.next;
+                var nodeNextToOneWeAreDeleting = nodeToDelete.next;
+                priorNode.next = nodeNextToOneWeAreDeleting;
+                nodeNextToOneWeAreDeleting.previous = priorNode;
+                return true;
+            }
+            return false;
         }
-
-        public T value { get; set; }
-        public DoublyNode<T> previous { get; set; }
-        public DoublyNode<T> next { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+﻿using DataStructuresAlgorithms.LinkedList.Structure;
 namespace DataStructuresAlgorithms.LinkedList
 {
     public class LinkedList<T>
@@ -49,7 +49,10 @@ namespace DataStructuresAlgorithms.LinkedList
                 return default; //This would never occur
             }
             else
+            {
+                this.length += 1;
                 return this.Append(value);
+            }
         }
 
         public Node<T> Traverse(int position)
@@ -78,18 +81,6 @@ namespace DataStructuresAlgorithms.LinkedList
                 return true;
             }
             return false;
-        }
-    }
-    public class Node<T>
-    {
-        public T value { get; private set; }
-
-        public Node<T> next { get; set; }
-
-        public Node(T value)
-        {
-            this.value = value;
-            this.next = null;
         }
     }
 }

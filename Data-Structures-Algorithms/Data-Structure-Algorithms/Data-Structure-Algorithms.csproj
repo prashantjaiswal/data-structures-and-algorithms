@@ -5,4 +5,7 @@
     <RootNamespace>DataStructuresAlgorithms</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="LinkedList\Structure\" />
+  </ItemGroup>
 </Project>
