@@ -3,8 +3,6 @@ namespace DataStructuresAlgorithms.LinkedList
 {
     public class LinkedList<T>
     {
-        
-
         public LinkedList(T value)
         {
             this.head = new Node<T>(value);
@@ -33,12 +31,60 @@ namespace DataStructuresAlgorithms.LinkedList
             this.length += 1;
             return this.head;
         }
+
+        public Node<T> Insert(T value, int position)
+        {
+            if (this.length > position)
+            {
+                var nodeAtPosition = Traverse(position - 1);
+
+                if (nodeAtPosition != default)
+                {
+                    Node<T> nodeToInsert = new Node<T>(value);
+                    nodeToInsert.next = nodeAtPosition.next;
+                    nodeAtPosition.next = nodeToInsert;
+                    this.length += 1;
+                    return nodeToInsert;
+                }
+                return default; //This would never occur
+            }
+            else
+                return this.Append(value);
+        }
+
+        public Node<T> Traverse(int position)
+        {
+            int currentPosition = 0;
+            Node<T> currentNode = this.head;
+            while(currentNode.next == null)
+            {
+                if (currentPosition == position)
+                    return currentNode;
+                currentNode = this.head.next;
+                currentPosition += 1;
+            }
+            return default;
+        }
+
+        public bool Remove(int position)
+        {
+            var nodeEarlierToRemove = Traverse(position - 1);
+
+            if (nodeEarlierToRemove != default)
+            {
+                var nodeToRemove = nodeEarlierToRemove.next;
+                nodeEarlierToRemove.next = nodeToRemove.next;
+                this.length -= 1;
+                return true;
+            }
+            return false;
+        }
     }
     public class Node<T>
     {
         public T value { get; private set; }
 
-        public object next { get; set; }
+        public Node<T> next { get; set; }
 
         public Node(T value)
         {
