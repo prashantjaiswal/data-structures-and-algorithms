@@ -1,13 +1,13 @@
-﻿using System;
+﻿using DataStructuresAlgorithms.StacksQueues.Structure;
 namespace DataStructuresAlgorithms.StacksQueues
 {
-    public class Stacks<T>
+    public class StacksLinkedList<T>
     {
         public Node<T> top { get; private set; }
         public Node<T> bottom { get; private set; }
         public int length { get; private set; }
 
-        public Stacks()
+        public StacksLinkedList()
         {
             this.top = null;
             this.bottom = null;
@@ -48,17 +48,5 @@ namespace DataStructuresAlgorithms.StacksQueues
         {
             return this.length == 0;
         }
-    }
-
-    public class Node<T>
-    {
-        public Node(T value)
-        {
-            this.next = null;
-            this.value = value;
-        }
-
-        public Node<T> next { get; set; }
-        public T value { get; private set; }
     }
 }

@@ -6,9 +6,9 @@ namespace Test_Data_Structure_Algorithms
     public class TestStacks
     {
         [Fact]
-        public void TestStackPush()
+        public void TestStacksLinkedListPush()
         {
-            var stack = new Stacks<string>();
+            var stack = new StacksLinkedList<string>();
             var firstPush = stack.Push("Google");
 
             Assert.Matches(stack.top.value, firstPush.value);
@@ -25,9 +25,9 @@ namespace Test_Data_Structure_Algorithms
         }
 
         [Fact]
-        public void TestStackPop()
+        public void TestStacksLinkedListPop()
         {
-            var stack = new Stacks<string>();
+            var stack = new StacksLinkedList<string>();
             var firstPush = stack.Push("Google");
             var secondPush = stack.Push("Stackoverflow");
             var thirdPush = stack.Push("medium blog");
@@ -40,6 +40,35 @@ namespace Test_Data_Structure_Algorithms
 
             var pop3 = stack.Pop();
             Assert.True(pop3.value == "Google");
+        }
+
+        [Fact]
+        public void TestStackArrayPush()
+        {
+            var stack = new StacksArray<string>(5);
+
+            var firstPush =stack.Push("Google");
+            Assert.Matches(firstPush, stack.Peek());
+
+            var secondPush = stack.Push("StackOverflow");
+            Assert.Matches(secondPush, stack.Peek());
+
+            var thirdPush = stack.Push("Discord");
+            Assert.Matches(thirdPush, stack.Peek());
+        }
+
+        [Fact]
+        public void TestStackArrayPop()
+        {
+            var stack = new StacksArray<string>(5);
+
+            var firstPush = stack.Push("Google");
+            var secondPush = stack.Push("StackOverflow");
+            var thirdPush = stack.Push("Discord");
+
+            Assert.Matches(thirdPush, stack.Pop());
+            Assert.Matches(secondPush, stack.Pop());
+            Assert.Matches(firstPush, stack.Pop());
         }
     }
 }

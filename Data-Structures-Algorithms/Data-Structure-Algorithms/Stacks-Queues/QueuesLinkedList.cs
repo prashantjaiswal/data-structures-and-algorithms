@@ -1,9 +1,9 @@
 ﻿using System;
 namespace DataStructuresAlgorithms.StacksQueues
 {
-    public class Queues
+    public class QueuesLinkedList<T>
     {
-        public Queues()
+        public QueuesLinkedList()
         {
         }
     }

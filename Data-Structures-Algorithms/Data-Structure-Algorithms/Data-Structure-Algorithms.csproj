@@ -7,5 +7,6 @@
 
   <ItemGroup>
     <Folder Include="LinkedList\Structure\" />
+    <Folder Include="Stacks-Queues\Structure\" />
   </ItemGroup>
 </Project>
