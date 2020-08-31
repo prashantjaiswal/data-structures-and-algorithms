@@ -23,7 +23,7 @@ namespace DataStructuresAlgorithms.StacksQueues
         {
             var node = new Node<T>(value);
             
-            if (this.length == 0)
+            if (this.bottom == default)
                 this.bottom = node;
             node.next = this.top;
             this.top = node;
@@ -33,7 +33,7 @@ namespace DataStructuresAlgorithms.StacksQueues
 
         public Node<T> Pop()
         {
-            if(length > 0)
+            if(this.bottom != default)
             {
                 var nextNode = this.top.next;
                 var popped = this.top;
