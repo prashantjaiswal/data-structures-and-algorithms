@@ -17,4 +17,8 @@
   <ItemGroup>
     <ProjectReference Include="..\Data-Structure-Algorithms\Data-Structure-Algorithms.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="LeetCode\" />
+    <Folder Include="LeetCode\Medium\" />
+  </ItemGroup>
 </Project>
