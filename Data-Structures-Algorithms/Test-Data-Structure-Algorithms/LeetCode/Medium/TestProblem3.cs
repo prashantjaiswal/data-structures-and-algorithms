@@ -27,13 +27,13 @@ namespace Test_Data_Structure_Algorithms.LeetCode.Medium
         {
             //Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
             //Output: 7 -> 0 -> 8
-            //Explanation: 342 + 465 = 807.
+            //Explanation: 101 + 202 = 807.
             var problem1 = new Problem1();
             ListNode l1 = new ListNode(1, new ListNode(0, new ListNode(1)));
             ListNode l2 = new ListNode(2, new ListNode(0, new ListNode(2)));
             //101 + 202 = 303 -> 303
             var solution = problem1.AddTwoNumbers(l1, l2);
-            Assert.True(solution.val == 1);
+            Assert.True(solution.val == 3);
             Assert.True(solution.next.val == 0);
             Assert.True(solution.next.next.val == 3);
         }
@@ -64,6 +64,22 @@ namespace Test_Data_Structure_Algorithms.LeetCode.Medium
             //856 + 465 = 1321 -> 1231
             var solution = problem1.AddTwoNumbers(l1, l2);
             Assert.True(solution.val == 1);
+        }
+
+        [Fact]
+        public void TestProblem3WithExample1WithEdgeCase()
+        {
+            //Input: (0) + (0)
+            //Output: 0
+            //Explanation: 342 + 465 = 807.
+            var problem1 = new Problem1();
+            ListNode l1 = new ListNode(1);
+            ListNode l2 = new ListNode(9, new ListNode(9));
+            //856 + 465 = 1321 -> 1231
+            var solution = problem1.AddTwoNumbers(l1, l2);
+            Assert.True(solution.val == 0);
+            Assert.True(solution.next.val == 0);
+            Assert.True(solution.next.next.val == 1);
         }
     }
 }

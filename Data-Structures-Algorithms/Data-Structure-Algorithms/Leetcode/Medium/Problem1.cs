@@ -15,11 +15,13 @@ namespace DataStructuresAlgorithms.Leetcode
 
         public ListNode AddTwoNumbers(ListNode l1, ListNode l2)
         {
-            ListNode listNode = null;
-            ListNode currentNode = null;
-            while(l1 != null || l2 != null)
+            ListNode listNode = new ListNode(0);
+            ListNode currentNode = listNode;
+            int carry = 0;
+
+            while (l1 != null || l2 != null || carry > 0)
             {
-                int sum = 0;
+                int sum = carry;
                 if (l1 != null)
                 {
                     sum += l1.val;
@@ -30,26 +32,15 @@ namespace DataStructuresAlgorithms.Leetcode
                     sum += l2.val;
                     l2 = l2.next;
                 }
-
-                if(listNode == null)
-                {
-                    listNode = new ListNode(sum % 10);
-                    if (!(l1 == null && l2 == null && (sum / 10 == 0 || sum == 0)))
-                        listNode.next = new ListNode(sum / 10);
-                    currentNode = listNode.next;
-                }
-                else
-                {
-                    currentNode.val += (sum % 10);
-                    if (!(l1 == null && l2 == null && (sum / 10 == 0 || sum == 0)))
-                        currentNode.next = new ListNode(sum / 10);
-                    currentNode = currentNode.next;
-                }
+                carry = sum / 10;
+                currentNode.next = new ListNode(sum % 10);
+                currentNode = currentNode.next;
             }
 
-            return listNode;
+            return listNode.next;
         }
     }
+
 
     public class ListNode
     {
