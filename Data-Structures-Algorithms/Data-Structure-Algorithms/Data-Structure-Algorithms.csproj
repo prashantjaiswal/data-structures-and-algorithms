@@ -10,5 +10,6 @@
     <Folder Include="Stacks-Queues\Structure\" />
     <Folder Include="Leetcode\Easy\" />
     <Folder Include="Leetcode\Medium\" />
+    <Folder Include="Trees\Structure\" />
   </ItemGroup>
 </Project>
