@@ -12,38 +12,59 @@ namespace DataStructuresAlgorithms.BinarySearchTree
             this.root = null;
         }
 
-        public TreeNode<T> Insert(T value, int order)
+        public TreeNode<T> Insert(NodeValue<T> node)
         {
-            var newNode = new TreeNode<T>(value, order);
+            var newNode = new TreeNode<T>(node);
 
             if (this.root == null)
             {
                 this.root = newNode;
                 return this.root;
             }
-            TreeNode<T> currentNode = this.root;
+            TreeNode<T> current = this.root;
 
             while (true)
             {
-                if (currentNode.order > order)
+                if (current.node.order > node.order)
                 {
-                    if (currentNode.left == null)
+                    if (current.left == null)
                     {
-                        currentNode.left = newNode;
+                        current.left = newNode;
                         return newNode;
                     }
-                    currentNode = currentNode.left;
+                    current = current.left;
                 }
                 else
                 {
-                    if (currentNode.right == null)
+                    if (current.right == null)
                     {
-                        currentNode.right = newNode;
+                        current.right = newNode;
                         return newNode;
                     }
-                    currentNode = currentNode.right;
+                    current = current.right;
                 }
             }
+        }
+
+        public TreeNode<T> LookUp(NodeValue<T> node)
+        {
+            var current = this.root;
+            while (true && current != null)
+            {
+                if (current.node.order == node.order)
+                {
+                    return current;
+                }
+                else if (current.node.order > node.order)
+                {
+                    current = current?.left;
+                }
+                else
+                {
+                    current = current?.right;
+                }
+            }
+            return default;
         }
 
         public TreeNode<T> Traverse(TreeNode<T> node)
