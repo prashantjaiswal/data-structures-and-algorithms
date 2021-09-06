@@ -21,7 +21,8 @@ namespace Test_Data_Structure_Algorithms
             bst.Insert(new NodeValue<string>("Wife", 15));
             bst.Insert(new NodeValue<string>("Kid", 1));
 
-            Assert.True(bst.root.node.val == "Bhaiya");
+            Assert.False(bst.root.node.val == "Bhaiya");
+            Assert.True(bst.root.node.val == "Papa");
         }
 
         [Fact]
