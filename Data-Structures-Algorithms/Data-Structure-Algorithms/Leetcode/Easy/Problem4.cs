@@ -6,6 +6,7 @@ namespace DataStructuresAlgorithms.Leetcode.Easy
 {
     /// <summary>
     /// https://leetcode.com/problems/maximum-subarray/
+    /// Dynamic Programming, Kadane's Algorithm
     /// </summary>
     public class Problem4
     {
