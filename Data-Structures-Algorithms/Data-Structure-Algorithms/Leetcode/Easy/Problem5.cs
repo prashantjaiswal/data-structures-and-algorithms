@@ -25,7 +25,6 @@ namespace DataStructuresAlgorithms.Leetcode.Easy
                 int diff = target - nums[i];
                 if (dictionary.ContainsValue(diff))
                 {
-                    dictionary.
                     foreach (var d in dictionary)
                     {
                         if (d.Value == diff)
