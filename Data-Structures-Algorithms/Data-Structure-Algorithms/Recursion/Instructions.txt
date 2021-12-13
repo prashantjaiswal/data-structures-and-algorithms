@@ -1,0 +1,4 @@
+Tail Recursion - When all the processing happens before the Self Method is called
+Head Recursion - When All the processing happens after the Self Method is called
+Tree Recursion - When Self method is called more than once in a method 
+Indirect Recursion - When Self Method is called inderectly through some method
