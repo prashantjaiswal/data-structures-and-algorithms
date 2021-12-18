@@ -47,12 +47,44 @@ namespace DataStructuresAlgorithms.Arrays
             {
                 while (param[i] < 0) i++;
                 while (param[j] >= 0) j--;
-                if (i < j) {
+                if (i < j)
+                {
                     swappingBag = param[i];
                     param[i] = param[j];
                     param[j] = swappingBag;
                 }
             }
+        }
+
+        public int[] MergeArray(int[] arrayFirst, int[] arraySecond)
+        {
+            int i = 0, j = 0;
+            var mergedCollection = new List<int>();
+
+            while (i < arrayFirst.Length && j < arraySecond.Length)
+            {
+                if (arrayFirst[i] < arraySecond[j])
+                {
+                    mergedCollection.Add(arrayFirst[i]);
+                    i++;
+                }
+                else
+                {
+                    mergedCollection.Add(arraySecond[j]);
+                    j++;
+                }
+            }
+            while(i< arrayFirst.Length)
+            {
+                mergedCollection.Add(arrayFirst[i]);
+                i++;
+            }
+            while (j < arraySecond.Length)
+            {
+                mergedCollection.Add(arraySecond[j]);
+                j++;
+            }
+            return mergedCollection.ToArray();
         }
     }
 }

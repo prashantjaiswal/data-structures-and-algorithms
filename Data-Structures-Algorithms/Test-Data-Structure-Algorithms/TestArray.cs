@@ -41,5 +41,22 @@ namespace Test_Data_Structure_Algorithms
             int[] param = new int[] { -2, 6, -5, 7, 8, -9 };
             arrayOperation.ArrangeNegativeToLeft(param);
         }
+
+        [Fact]
+        public void TestMergeArrayOperation()
+        {
+            ArrayOperation arrayOperation = new ArrayOperation();
+            int[] firstArray = new int[] { 2, 4, 6, 9, 10, 40 };
+            int[] secondArray = new int[] { 1, 3, 6, 7, 9, 34, 67, 76, 87 };
+            var mergedArray = arrayOperation.MergeArray(firstArray, secondArray);
+        }
+
+        [Fact]
+        public void TestMissingNumberOperation()
+        {
+            ArrayChallenge arrayChallenge = new ArrayChallenge();
+            int[] arrayParam = new int[] { 2, 3, 5, 8, 9, 10 };
+            var missingNumbers = arrayChallenge.MissingNumber(arrayParam);
+        }
     }
 }
