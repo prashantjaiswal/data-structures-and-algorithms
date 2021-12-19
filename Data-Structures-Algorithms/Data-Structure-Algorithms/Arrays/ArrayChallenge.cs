@@ -56,7 +56,7 @@ namespace DataStructuresAlgorithms.Arrays
             for (int i = 0; i < arrayOfNumber.Length; i++)
             {
                 if (arrayOfNumber[i] > max) max = arrayOfNumber[i];
-                if (arrayOfNumber[i] < min) min = arrayOfNumber[i];
+                else if (arrayOfNumber[i] < min) min = arrayOfNumber[i];
             }
             return new int[] { min, max };
         }
