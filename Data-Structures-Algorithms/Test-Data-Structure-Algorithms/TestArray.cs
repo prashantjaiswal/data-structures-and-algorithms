@@ -58,5 +58,23 @@ namespace Test_Data_Structure_Algorithms
             int[] arrayParam = new int[] { 2, 3, 5, 8, 9, 10 };
             var missingNumbers = arrayChallenge.MissingNumber(arrayParam);
         }
+
+
+        [Fact]
+        public void TestSumOfNumbersEqualToKOperation()
+        {
+            ArrayChallenge arrayChallenge = new ArrayChallenge();
+            int[] arrayParam = new int[] { 2, 3, 5, 8, 9, 10, 4, 6 };
+            var missingNumbers = arrayChallenge.SumOfNumbersEqualToK(9, arrayParam);
+        }
+
+        [Fact]
+        public void TestFindMaxMinOperation()
+        {
+            ArrayChallenge arrayChallenge = new ArrayChallenge();
+            int[] arrayParam = new int[] { 2, 3, 5, 8, 9, 10, 4, 6 };
+            var minMaxArray = arrayChallenge.FindMaxMin(arrayParam);
+            Assert.Equal(new int[] { 2, 10 }, minMaxArray);
+        }
     }
 }
