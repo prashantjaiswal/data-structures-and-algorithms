@@ -21,7 +21,6 @@ namespace Test_Data_Structure_Algorithms
         {
             StringOperations operation = new StringOperations();
             var result = operation.CheckDuplicateCharsUsingBitwise("prashantjaiswal");
-    
         }
     }
 }

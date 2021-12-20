@@ -26,15 +26,15 @@ namespace DataStructuresAlgorithms.String
             foreach (var charElement in word)
             {
                 var charBit = 1;
-                charBit = charBit << charElement - 97;
-                if ((charBit & charCountBit) > 0)
+                charBit = charBit << charElement - 97; //Setting value of charBit equal to value to char
+                if ((charBit & charCountBit) > 0) //checking if it was set already
                 {
                     if (dictionary.ContainsKey(charElement)) dictionary[charElement] += 1;
                     else dictionary.Add(charElement, 1);
                 }
                 else
                 {
-                    charCountBit = charBit | charCountBit;
+                    charCountBit = charBit | charCountBit;// setting up the value for a given character in char count 
                 }
             }
 
