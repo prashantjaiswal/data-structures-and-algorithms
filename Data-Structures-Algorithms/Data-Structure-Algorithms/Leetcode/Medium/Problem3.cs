@@ -3,110 +3,50 @@ using System.Collections.Generic;
 
 namespace DataStructuresAlgorithms.Leetcode.Medium
 {
-    /*https://leetcode.com/problems/longest-substring-without-repeating-characters/
-     * Given a string s, find the length of the longest substring without repeating characters.
-
-        Example 1:
-
-        Input: s = "abcabcbb"
-        Output: 3
-        Explanation: The answer is "abc", with the length of 3.
-        Example 2:
-
-        Input: s = "bbbbb"
-        Output: 1
-        Explanation: The answer is "b", with the length of 1.
-        Example 3:
-
-        Input: s = "pwwkew"
-        Output: 3
-        Explanation: The answer is "wke", with the length of 3.
-        Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
-     */
+    /// <summary>
+    /// https://leetcode.com/problems/reverse-integer/
+    /// Given a signed 32-bit integer x, return x with its digits reversed.
+    /// If reversing x causes the value to go outside the signed 32-bit integer range [-2^31, 2^31 - 1], then return 0.
+    /// </summary>
     public class Problem3
     {
-        public int lengthOfLongestSubstringSolution1(String s)
+        public int Reverse(int x)
         {
-            int n = s.Length;
-
-            int res = 0;
-            for (int i = 0; i < n; i++)
+            var numberCharArray = x.ToString().ToCharArray();
+            if (x < 0)
             {
-                for (int j = i; j < n; j++)
-                {
-                    if (checkRepetition(s, i, j))
-                    {
-                        res = Math.Max(res, j - i + 1);
-                    }
-                }
+                numberCharArray = x.ToString().Substring(1).ToCharArray();
+            }
+            int length = numberCharArray.Length;
+            for (int i = 0; i < length / 2; i++)
+            {
+                (numberCharArray[length - i - 1], numberCharArray[i]) = (numberCharArray[i], numberCharArray[length - i - 1]);
             }
 
-            return res;
+            var reversed = new string(numberCharArray);
+            int.TryParse(reversed, out var returnValue);
+            if (x < 0 && returnValue != 0)
+                return -returnValue;
+            return returnValue;
         }
 
-        private bool checkRepetition(String s, int start, int end)
+        public int ReverseOption(int x)
         {
-            int[] chars = new int[128];
-
-            for (int i = start; i <= end; i++)
+            long res = 0;
+            while (x != 0)
             {
-                char c = s[i];
-                chars[c]++;
-                if (chars[c] > 1)
-                {
-                    return false;
-                }
+                res = res * 10 + x % 10;
+                x = x / 10;
             }
 
-            return true;
-        }
-
-
-        public int lengthOfLongestSubstringSolution2(String s)
-        {
-            int[] chars = new int[128];
-
-            int left = 0;
-            int right = 0;
-
-            int res = 0;
-            while (right < s.Length)
+            if (res < Int32.MinValue || res > Int32.MaxValue)
             {
-                char r = s[right];
-                chars[r]++;
-
-                while (chars[r] > 1)
-                {
-                    char l = s[left];
-                    chars[l]--;
-                    left++;
-                }
-
-                res = Math.Max(res, right - left + 1);
-
-                right++;
+                return 0;
             }
-            return res;
-        }
-
-        public int lengthOfLongestSubstringSolution3(String s)
-        {
-            int n = s.Length, ans = 0;
-            var map = new Dictionary<char,int>(); // current index of character
-                                                           // try to extend the range [i, j]
-            for (int j = 0, i = 0; j < n; j++)
+            else
             {
-                if (map.ContainsKey(s[j]))
-                {
-                    i = Math.Max(map.GetValueOrDefault(s[j]), i);
-                }
-                ans = Math.Max(ans, j - i + 1);
-                if (map.ContainsKey(s[j]))
-                    map[s[j]] = j + 1;
-                else
-                    map.Add(s[j], j + 1);
+                return (int) res;
             }
-            return ans;
         }
     }
 }
