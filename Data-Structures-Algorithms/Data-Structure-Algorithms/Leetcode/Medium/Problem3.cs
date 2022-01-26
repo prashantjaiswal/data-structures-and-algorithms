@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
+using System.Collections;
 
 namespace DataStructuresAlgorithms.Leetcode.Medium
 {
@@ -37,7 +39,7 @@ namespace DataStructuresAlgorithms.Leetcode.Medium
                     if (checkRepetition(s, i, j))
                     {
                         res = Math.Max(res, j - i + 1);
-                    }
+            }
                 }
             }
 
@@ -53,7 +55,7 @@ namespace DataStructuresAlgorithms.Leetcode.Medium
                 char c = s[i];
                 chars[c]++;
                 if (chars[c] > 1)
-                {
+            {
                     return false;
                 }
             }
@@ -71,12 +73,12 @@ namespace DataStructuresAlgorithms.Leetcode.Medium
 
             int res = 0;
             while (right < s.Length)
-            {
+        {
                 char r = s[right];
                 chars[r]++;
 
                 while (chars[r] > 1)
-                {
+            {
                     char l = s[left];
                     chars[l]--;
                     left++;
@@ -87,7 +89,7 @@ namespace DataStructuresAlgorithms.Leetcode.Medium
                 right++;
             }
             return res;
-        }
+            }
 
         public int lengthOfLongestSubstringSolution3(String s)
         {
@@ -97,13 +99,13 @@ namespace DataStructuresAlgorithms.Leetcode.Medium
             for (int j = 0, i = 0; j < n; j++)
             {
                 if (map.ContainsKey(s[j]))
-                {
+            {
                     i = Math.Max(map.GetValueOrDefault(s[j]), i);
-                }
+            }
                 ans = Math.Max(ans, j - i + 1);
                 if (map.ContainsKey(s[j]))
                     map[s[j]] = j + 1;
-                else
+            else
                     map.Add(s[j], j + 1);
             }
             return ans;
