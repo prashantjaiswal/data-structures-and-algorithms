@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 namespace DataStructuresAlgorithms.Sorting
 {
     public class Sorting

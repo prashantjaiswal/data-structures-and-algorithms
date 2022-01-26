@@ -3,7 +3,6 @@ namespace DataStructuresAlgorithms.Recursion
 {
     public class TowerOfHanoi
     {
-
         public void TowerOfHanoiOperation(int numberOfPlates, int towerA, int towerB, int towerC)
         {
             if(numberOfPlates > 0)
