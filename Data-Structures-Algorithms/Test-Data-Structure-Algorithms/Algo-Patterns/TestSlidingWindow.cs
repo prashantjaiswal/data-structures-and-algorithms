@@ -4,7 +4,7 @@ using Xunit;
 
 namespace Test_Data_Structure_Algorithms.AlgoPatterns
 {
-    public class SlidingWindow
+    public class TestSlidingWindow
     {
         [Fact]
         public void TestMaxSubArraySum()
@@ -32,5 +32,21 @@ namespace Test_Data_Structure_Algorithms.AlgoPatterns
             Assert.Equal(1, max);
         }
 
+        [Fact]
+        public void TestFindLength()
+        {
+            Problem03 problem = new Problem03();
+            int max = problem.FindLength("araaci", 2);
+            Assert.Equal(4, max);
+
+            max = problem.FindLength("cbbebi", 3);
+            Assert.Equal(5, max);
+
+            max = problem.FindLength("araaci", 1);
+            Assert.Equal(2, max);
+
+            max = problem.FindLength("cbbebi", 10);
+            Assert.Equal(6, max);
+        }
     }
 }
