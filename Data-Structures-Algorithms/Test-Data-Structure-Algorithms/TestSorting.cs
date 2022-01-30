@@ -29,5 +29,21 @@ namespace Test_Data_Structure_Algorithms
             int[] param = new int[] { 2, 6, 5, 7, 8, 9 };
             sorting.SelectionSort(param);
         }
+
+        [Fact]
+        public void TestQuickSorting()
+        {
+            Sorting sorting = new Sorting();
+            int[] param = new int[] { 2, 6, 5, 7, 8, 9 };
+            sorting.QuickSort(param, 0, param.Length -1);
+        }
+
+        [Fact]
+        public void TestIMergeSorting()
+        {
+            Sorting sorting = new Sorting();
+            int[] param = new int[] { 2, 6, 5, 7, 8, 9 };
+            sorting.IterativeMergeSort(param);
+        }
     }
 }

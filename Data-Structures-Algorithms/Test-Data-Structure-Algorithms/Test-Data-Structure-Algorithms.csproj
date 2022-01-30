@@ -17,4 +17,10 @@
   <ItemGroup>
     <ProjectReference Include="..\Data-Structure-Algorithms\Data-Structure-Algorithms.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="Algo-Patterns\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Algo-Patterns\" />
+  </ItemGroup>
 </Project>
