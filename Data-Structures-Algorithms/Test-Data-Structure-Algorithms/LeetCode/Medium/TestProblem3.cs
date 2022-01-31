@@ -12,9 +12,9 @@ namespace Test_Data_Structure_Algorithms.LeetCode.Medium
         [Fact]
         public void TestProblem3WithExample1()
         {
-            Problem3 problem = new Problem3();
-            var returnValue = problem.ReverseOption(-123);
-            Assert.Equal( -321, -123);
+            //Problem3 problem = new Problem3();
+            //var returnValue = problem.lengthOfLongestSubstringSolution1(-123);
+            //Assert.Equal( -321, -123);
         }
     }
 }
