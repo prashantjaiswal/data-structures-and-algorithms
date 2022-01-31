@@ -9,8 +9,6 @@
     <Folder Include="LinkedList\Structure\" />
     <Folder Include="Stacks-Queues\Structure\" />
     <Folder Include="Trees\Structure\" />
-    <Folder Include="Algo-Patterns\" />
-    <Folder Include="Algo-Patterns\01-SlidingWindow\" />
     <Folder Include="Algo-Patterns\02-TwoPointers\" />
     <Folder Include="Algo-Patterns\03-Fast-SlowPointers\" />
     <Folder Include="Algo-Patterns\04-MergeIntervals\" />
