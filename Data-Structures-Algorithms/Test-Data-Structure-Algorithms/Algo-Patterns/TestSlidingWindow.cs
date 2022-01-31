@@ -59,5 +59,19 @@ namespace Test_Data_Structure_Algorithms.AlgoPatterns
             max = problem.FindLength(new []{'A', 'B', 'C', 'B', 'B', 'C'});
             Assert.Equal(5, max);
         }
+
+        [Fact]
+        public void TestFindLengthNoRepeatSubstring()
+        {
+            Problem05 problem = new Problem05();
+            int length = problem.FindLenghtNoRepeatSubString("aabccbb");
+            Assert.Equal(3, length);
+
+            length = problem.FindLenghtNoRepeatSubString("abbbb");
+            Assert.Equal(2, length);
+
+            length = problem.FindLenghtNoRepeatSubString("abccde");
+            Assert.Equal(3, length);
+        }
     }
 }
