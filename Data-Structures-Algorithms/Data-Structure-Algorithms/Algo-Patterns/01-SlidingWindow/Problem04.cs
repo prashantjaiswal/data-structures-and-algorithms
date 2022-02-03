@@ -28,15 +28,15 @@ namespace DataStructuresAlgorithms.AlgoPatterns.SlidingWindow
             Explanation: We can put 3 'B' in one basket and two 'C' in the other basket.
             This can be done if we start with the second letter: ['B', 'C', 'B', 'B', 'C']*/
 
-        public int FindLength(char[] array)
+        public int FindLength(char[] fruits)
         {
             int maxFruits = int.MinValue;
             int windowStart = 0;
             var map = new Dictionary<char, int>();
 
-            for (var windowEnd = 0; windowEnd < array.Length; windowEnd++)
+            for (var windowEnd = 0; windowEnd < fruits.Length; windowEnd++)
             {
-                var fruit = array[windowEnd];
+                var fruit = fruits[windowEnd];
                 if (map.ContainsKey(fruit))
                     map[fruit] += 1;
                 else
@@ -44,8 +44,8 @@ namespace DataStructuresAlgorithms.AlgoPatterns.SlidingWindow
 
                 while (map.Keys.Count > 2)
                 {
-                    map[array[windowStart]] -= 1;
-                    if (map[array[windowStart]] == 0) map.Remove(array[windowStart]);
+                    map[fruits[windowStart]] -= 1;
+                    if (map[fruits[windowStart]] == 0) map.Remove(fruits[windowStart]);
                     windowStart++;
                 }
 

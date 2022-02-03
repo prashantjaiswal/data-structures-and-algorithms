@@ -73,5 +73,19 @@ namespace Test_Data_Structure_Algorithms.AlgoPatterns
             length = problem.FindLenghtNoRepeatSubString("abccde");
             Assert.Equal(3, length);
         }
+
+        [Fact]
+        public void TestFindLengthLongestSubstring()
+        {
+            Problem06 problem = new Problem06();
+            int length = problem.FindLengthLongestSubstring("aabccbb", 2);
+            Assert.Equal(5, length);
+
+            length = problem.FindLengthLongestSubstring("abbcb", 1);
+            Assert.Equal(4, length);
+
+            length = problem.FindLengthLongestSubstring("abccde", 1);
+            Assert.Equal(3, length);
+        }
     }
 }
