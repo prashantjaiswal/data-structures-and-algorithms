@@ -48,6 +48,44 @@ namespace DataStructuresAlgorithms.AlgoPatterns.SlidingWindow
             int lengthOfPattern = pattern.Length;
             var map = new Dictionary<char, int>();
             int windowStart = 0;
+            int matched = 0;
+
+            for (int i = 0; i < lengthOfPattern; i++)
+            {
+                if (map.ContainsKey(pattern[i])) map[pattern[i]] += 1;
+                else map.Add(pattern[i], 1);
+            }
+
+            for (int windowEnd = 0; windowEnd < str.Length; windowEnd++)
+            {
+                char rightChar = str[windowEnd];
+                if (map.ContainsKey(rightChar))
+                {
+                    map[rightChar] -= 1;
+                    if (map[rightChar] == 0) matched++;
+                }
+                if (matched == map.Keys.Count) return true;
+
+                if(windowEnd >= pattern.Length - 1)
+                {
+                    char leftChar = str[windowStart++];
+                    if (map.ContainsKey(leftChar))
+                    {
+                        if (map[leftChar] == 0)
+                            matched--;
+                        map[leftChar] += 1;
+                    }
+                }
+            }
+            return false;
+        }
+
+        /*
+         * public bool FindPermutation(string str, string pattern)
+        {
+            int lengthOfPattern = pattern.Length;
+            var map = new Dictionary<char, int>();
+            int windowStart = 0;
             bool hasSubstring = false;
             if (hasSubstring) return true;
 
@@ -78,25 +116,6 @@ namespace DataStructuresAlgorithms.AlgoPatterns.SlidingWindow
             }
             return hasSubstring;
         }
-
-        public bool FindPermutation02(string str, string pattern)
-        {
-            int lengthOfPattern = pattern.Length;
-            var map = new Dictionary<char, int>();
-            int windowStart = 0;
-            bool hasSubstring = false;
-
-            for (int i = 0; i < lengthOfPattern; i++)
-            {
-                if (map.ContainsKey(pattern[i])) map[pattern[i]] += 1;
-                else map.Add(pattern[i], 1);
-            }
-
-            for (int windowEnd = 0; windowEnd < str.Length; windowEnd++)
-            {
-                
-            }
-            return hasSubstring;
-        }
+         */
     }
 }
