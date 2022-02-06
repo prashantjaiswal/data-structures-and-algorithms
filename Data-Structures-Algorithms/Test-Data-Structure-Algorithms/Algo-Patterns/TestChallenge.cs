@@ -39,5 +39,20 @@ namespace Test_Data_Structure_Algorithms.AlgoPatterns
             array = problem.FindStringAnagrams("abbcabc", "abc");
             Assert.Equal(array, new int[] { 2, 3, 4 });
         }
+        //FindMinumumWindowSubstring
+        [Fact]
+        public void TestFindMinumumWindowSubstring()
+        {
+            Challenge03 problem = new Challenge03();
+
+            var matched = problem.FindMinumumWindowSubstring("aabdec", "abc");
+            Assert.Equal("abdec", matched);
+
+            matched = problem.FindMinumumWindowSubstring("abdabca", "abc");
+            Assert.Equal("abc", matched);
+
+            matched = problem.FindMinumumWindowSubstring("adcad", "abc");
+            Assert.Equal("", matched);
+        }
     }
 }
