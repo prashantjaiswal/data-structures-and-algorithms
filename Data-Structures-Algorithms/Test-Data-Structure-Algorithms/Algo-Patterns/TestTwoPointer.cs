@@ -19,5 +19,33 @@ namespace Test_Data_Structure_Algorithms.AlgoPatterns
             indices = problem01.Search(param, 11);
             Assert.Equal(new[] { 0, 2 }, indices);
         }
+       
+        [Fact]
+        public void TestRemoveDuplicateLength()
+        {
+            Problem02 problem = new Problem02();
+
+            var param = new int[] { 2, 3, 3, 3, 6, 9, 9 };
+            var indices = problem.Remove(param);
+            Assert.Equal(4, indices);
+
+            param = new int[] { 2, 2, 2, 11 };
+            indices = problem.Remove(param);
+            Assert.Equal(2, indices);
+        }
+
+        [Fact]
+        public void TestMakeSortedArray()
+        {
+            Problem03 problem = new Problem03();
+
+            var param = new int[] { -2, -1, 0, 2, 3 };
+            var indices = problem.MakeSortedArray(param);
+            Assert.Equal(new[] { 0, 1, 4, 4, 9 }, indices);
+
+            param = new int[] { -3, -1, 0, 1, 2 };
+            indices = problem.MakeSortedArray(param);
+            Assert.Equal(new[] { 0, 1, 1, 4, 9 }, indices);
+        }
     }
 }
