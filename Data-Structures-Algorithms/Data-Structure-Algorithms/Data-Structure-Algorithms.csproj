@@ -10,20 +10,6 @@
     <Folder Include="Stacks-Queues\Structure\" />
     <Folder Include="Trees\Structure\" />
     <Folder Include="Algo-Patterns\02-TwoPointers\" />
-    <Folder Include="Algo-Patterns\03-Fast-SlowPointers\" />
-    <Folder Include="Algo-Patterns\04-MergeIntervals\" />
-    <Folder Include="Algo-Patterns\05-CyclicSorts\" />
-    <Folder Include="Algo-Patterns\06-InPlaceReversal\" />
-    <Folder Include="Algo-Patterns\07-TreeBFS\" />
-    <Folder Include="Algo-Patterns\08-TreeDFS\" />
-    <Folder Include="Algo-Patterns\09-TwoHeaps\" />
-    <Folder Include="Algo-Patterns\10-Subsets\" />
-    <Folder Include="Algo-Patterns\11-ModifiedBinarySearch\" />
-    <Folder Include="Algo-Patterns\12-BitwiseXOR\" />
-    <Folder Include="Algo-Patterns\13-TopKElements\" />
-    <Folder Include="Algo-Patterns\14-KWayMerge\" />
-    <Folder Include="Algo-Patterns\15-0-1Knapsack%28DP%29\" />
-    <Folder Include="Algo-Patterns\16-TopologicalSort\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Algo-Patterns\" />
