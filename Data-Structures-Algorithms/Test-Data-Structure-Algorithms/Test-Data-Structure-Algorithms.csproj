@@ -19,8 +19,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Algo-Patterns\" />
+    <None Remove="Practice\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Algo-Patterns\" />
+    <Folder Include="Practice\" />
   </ItemGroup>
 </Project>

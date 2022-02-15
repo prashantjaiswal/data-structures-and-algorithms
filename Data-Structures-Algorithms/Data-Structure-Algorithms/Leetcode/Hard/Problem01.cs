@@ -43,10 +43,7 @@ namespace DataStructuresAlgorithms.Leetcode.Hard
             for (int windowEnd = 0; windowEnd < s.Length; windowEnd++)
             {
                 word.Append(s[windowEnd]);
-                if (map.ContainsKey(word.ToString()))
-                {
-
-                }
+                
             }
 
             return list;
