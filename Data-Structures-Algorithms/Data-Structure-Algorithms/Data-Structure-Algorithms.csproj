@@ -10,6 +10,8 @@
     <Folder Include="Stacks-Queues\Structure\" />
     <Folder Include="Trees\Structure\" />
     <Folder Include="Algo-Patterns\02-TwoPointers\" />
+    <Folder Include="Leetcode\Hard\" />
+    <Folder Include="Practice\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Algo-Patterns\" />
@@ -29,5 +31,7 @@
     <None Remove="Algo-Patterns\14-KWayMerge\" />
     <None Remove="Algo-Patterns\15-0-1Knapsack%28DP%29\" />
     <None Remove="Algo-Patterns\16-TopologicalSort\" />
+    <None Remove="Leetcode\Hard\" />
+    <None Remove="Practice\" />
   </ItemGroup>
 </Project>
