@@ -56,5 +56,15 @@ namespace Test_Data_Structure_Algorithms.Practice
             result = practice.IsPerfectNumber(8128);
             Assert.Equal("YES", result); 
         }
+
+        [Fact]
+        public void TestFindAllArmstrongNumber()
+        {
+            Practice01 practice = new Practice01();
+
+            int param = 200;
+            var result = practice.FindAllArmstrongNumber(param);
+            result = practice.FindAllArmstrongNumberOrderNForThreeDigit(param);
+        }
     }
 }

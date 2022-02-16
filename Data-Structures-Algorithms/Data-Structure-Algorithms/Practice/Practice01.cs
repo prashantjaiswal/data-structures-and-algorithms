@@ -36,7 +36,6 @@ namespace DataStructuresAlgorithms.Practice
             return (N * (N + 1)) / 2;
         }
 
-
         public string IsPerfectNumber(int N)
         {
             int sum = 1;
@@ -48,6 +47,46 @@ namespace DataStructuresAlgorithms.Practice
 
             if (sum == N) return "YES";
             return "NO";
+        }
+
+        public int[] FindAllArmstrongNumber(int range)
+        {
+            var list = new List<int>();
+            list.Add(1);
+            for (int i = 2; i <= range; i++)
+            {
+                int sum = 0;
+                int x = i % 10;
+                int y = i;
+                while (y > 0)
+                {
+                    sum += x * x * x;
+                    y = y / 10;
+                    x = y % 10;
+                }
+                if (sum == i) list.Add(i);
+            }
+            return list.ToArray();
+        }
+
+        // Above performed better 
+        public int[] FindAllArmstrongNumberOrderNForThreeDigit(int range)
+        {
+            int digit1 = 0;
+            int digit2 = 0;
+            int digit3 = 0;
+            int sum = 0;
+            var list = new List<int>();
+
+            for (int number = 1; number <= range; number++)
+            {
+                digit1 = number - ((number / 10) * 10);
+                digit2 = (number / 10) - ((number / 100) * 10);
+                digit3 = (number / 100) - ((number / 1000) * 10);
+                sum = (digit1 * digit1 * digit1) + (digit2 * digit2 * digit2) + (digit3 * digit3 * digit3);
+                if (sum == number) list.Add(number);
+            }
+            return list.ToArray();
         }
     }
 }
