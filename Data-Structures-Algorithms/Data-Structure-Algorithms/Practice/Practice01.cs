@@ -88,5 +88,94 @@ namespace DataStructuresAlgorithms.Practice
             }
             return list.ToArray();
         }
+
+        public void CreateTable(int n)
+        {
+            var list = new List<string>();
+            for (int i = 1; i <= 10; i++)
+            {
+                list.Add($"{n} * {i} = {n * i}");
+            }
+            var str = "";
+        }
+
+        /*
+        Given an array A of size N, groot wants you to pick 2 indices i and j such that
+
+        1 <= i, j <= N
+        A[i] % A[j] is maximum among all possible pairs of (i, j).
+        Help Groot in finding the maximum value of A[i] % A[j] for some i, j.
+
+        [1, 2, 44, 3]
+         */
+        public int SolveMaxMod(List<int> A)
+        {
+            int max = int.MinValue;
+            int mod = 0;
+            int modRevert = 0;
+            int maxMod = 0;
+
+            for (int i = 0; i < A.Count; i++)
+            {
+                for (int j = i; j < A.Count; j++)
+                {
+                    mod = A[i] % A[j];
+                    modRevert = A[j] % A[i];
+                    maxMod = Math.Max(mod, modRevert);
+                    max = Math.Max(max, maxMod);
+                }
+            }
+
+            return max;
+        }
+
+        public int SolveMaxMod01(List<int> A)
+        {
+            int i, first, second;
+            if (A.Count < 2)
+            {
+                return 0;
+            }
+
+            first = second = int.MinValue;
+            for (i = 0; i < A.Count; i++)
+            {
+                if (A[i] > first)
+                {
+                    second = first;
+                    first = A[i];
+                }
+                else if (A[i] > second &&
+                         A[i] != first)
+                {
+                    second = A[i];
+                }
+            }
+            if (second == int.MinValue)
+            {
+                return 0;
+            }
+            else
+            {
+                return second;
+            }
+        }
+
+        public int TimeComplexity(int N)
+        {
+            int count = 0;
+            
+            for (int i = 0; i < (1 << N); i++)
+            {
+                int j = i;
+                while (j > 0)
+                {
+                    j -= 1;
+                    count++;
+                }
+            }
+
+            return count;
+        }
     }
 }
