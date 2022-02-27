@@ -3,6 +3,10 @@ using System.Collections.Generic;
 
 namespace DataStructuresAlgorithms.Practice
 {
+    /// <summary>
+    /// Prefix Sum
+    /// Sum[L,R] = PS[R] - PS[L-1] where L -1> 0 
+    /// </summary>
     public class Practice03
     {
         /*
