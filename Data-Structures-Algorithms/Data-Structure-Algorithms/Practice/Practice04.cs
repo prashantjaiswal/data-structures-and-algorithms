@@ -131,5 +131,49 @@ namespace DataStructuresAlgorithms.Practice
 
             return leaders;
         }
+
+        /*
+        You are given a string S, and you have to find all the amazing substrings of S.
+        Amazing Substring is one that starts with a vowel (a, e, i, o, u, A, E, I, O, U).
+        Input
+         */
+
+        public int FindAmazingSubarrays(string A)
+        {
+            int count = 0;
+            int totalSubArray = 0;
+            //"ABEC"
+            for (int i = A.Length - 1; i >= 0; i--)
+            {
+                char current = A[i];
+                count++;
+                if (IsVowel(current))
+                {
+                    totalSubArray += count;
+                }
+            }
+            return totalSubArray % 10003;
+        }
+        private bool IsVowel(char c)
+        {
+                return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
+                        c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U');
+        }
+
+
+        /*
+        Problem Description
+        You are given an integer array A.
+        Decide whether it is possible to divide the array into one or
+        more subarrays of even length such that first and last element of all subarrays will be even.
+        Return "YES" if it is possible otherwise return "NO" (without quotes).
+         */
+        public string FindEvenSubArrays(List<int> A)
+        {
+            if (A.Count % 2 != 0 || A[0] % 2 != 0 || A[A.Count - 1] % 2 != 0)
+                return "NO";
+            else
+                return "YES";
+        }
     }
 }
