@@ -177,5 +177,35 @@ namespace DataStructuresAlgorithms.Practice
 
             return count;
         }
+
+        public int FindSecondHighest(List<int> A)
+        {
+            int highest = int.MinValue;
+            int indexofHighest = -1;
+            int secondHighest = int.MinValue;
+            if (A.Count < 2) return -1;
+
+            for (int i = 0; i < A.Count; i++)
+            {
+                if (A[i] > highest)
+                {
+                    highest = A[i];
+                    indexofHighest = i;
+                }
+            }
+            for (int i = 0; i < A.Count; i++)
+            {
+                if(A[i] < highest && A[i] > secondHighest)
+                {
+                    secondHighest = A[i];
+                }
+                else if(A[i] == highest && i != indexofHighest)
+                {
+                    secondHighest = A[i];
+                }
+            }
+
+            return secondHighest;
+        }
     }
 }
