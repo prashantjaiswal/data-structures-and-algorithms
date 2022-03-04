@@ -53,13 +53,32 @@ namespace DataStructuresAlgorithms.Practice
         {
             var array = new List<List<int>>();
             int n = A.Count;
-            for (int i = n; i > 0; i--)
+            for (int j = 0; j < n; j++)
             {
-                int sum = 0;
-                for (int j = 0; j <= n - i; j++)
+                int I = 0, J = j;
+                var row = new List<int>();
+                while(I < n && J >= 0)
                 {
-                    sum += A[i][j];
+                    row.Add(A[I][J]);
+                    I++;
+                    J--;
                 }
+                while (n - row.Count > 0) row.Add(0);
+                array.Add(row);
+            }
+
+            for(int i=1;i< n; i++)
+            {
+                int I = i, J = n-1;
+                var row = new List<int>();
+                while (I < n && J >= 0)
+                {
+                    row.Add(A[I][J]);
+                    I++;
+                    J--;
+                }
+                while (n - row.Count > 0) row.Add(0);
+                array.Add(row);
             }
 
             return array;
