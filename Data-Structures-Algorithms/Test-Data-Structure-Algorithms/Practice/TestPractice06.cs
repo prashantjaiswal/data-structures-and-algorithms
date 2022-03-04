@@ -43,5 +43,17 @@ namespace Test_Data_Structure_Algorithms.Practice
             //
             var result = practice.AntiDiagonalArray(new List<List<int>> { new List<int> { 1, 2, 3 }, new List<int> { 4, 5, 6}, new List<int> { 7, 8, 9} });
         }
+
+        [Fact]
+        public void TestSubstract()
+        {
+            Practice06 practice = new Practice06();//
+            //
+            var result = practice.Substract(new List<List<int>> { new List<int> { 1, 2, 3 }, new List<int> { 4, 5, 6 }, new List<int> { 7, 8, 9 } },
+                new List<List<int>> { new List<int> { 9, 8, 7 }, new List<int> { 6, 5, 4 }, new List<int> { 3, 2, 1 } });
+
+            result = practice.Substract(new List<List<int>> { new List<int> { -5, 7}, new List<int> { 3,1}, new List<int> { 4, -10} },
+                new List<List<int>> { new List<int> { 3,4 }, new List<int> { 2,3}, new List<int> { 10,1} });
+        }
     }
 }

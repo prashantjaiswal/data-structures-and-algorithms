@@ -94,26 +94,48 @@ namespace DataStructuresAlgorithms.Practice
             if ((A.Count <= 0 && A[0].Count <= 0) || B.Count <= 0 && B[0].Count <= 0) return null;
             // A = M X N, B = N X P
             var multipliedMatrix = new List<List<int>>();
-            int cols = A.Count;
-            int rows = B[0].Count;
             int n = B.Count;
-            for (int i = 0; i < rows; i++)
+            int m = A.Count;
+            int p = B[0].Count;
+            for (int k = 0; k < n; k++)
             {
+                int i = 0, j= 0, sum =0;
                 var row = new List<int>();
-                int sum = 0;
-                for (int j = 0; j < cols; j++)
+                while ( i < m)
                 {
-                    for (int k = 0; k < n; k++)
+                    while (j < p)
                     {
                         sum += A[i][k] * B[k][j];
+                        j++;
                     }
-
                     row.Add(sum);
+                    i++;
                 }
                 multipliedMatrix.Add(row);
             }
 
             return multipliedMatrix;
+        }
+
+        public List<List<int>> Substract(List<List<int>> A, List<List<int>> B)
+        {
+            if(A != null && A.Count >= 0 )
+            {
+                var diffMatrix = new List<List<int>>();
+                int cols = A[0].Count;
+                int rows = A.Count;
+                for (int i = 0; i < rows; i++)
+                {
+                    var row = new List<int>();
+                    for (int j = 0; j < cols; j++)
+                    {
+                        row.Add(A[i][j] - B[i][j]);
+                    }
+                    diffMatrix.Add(row);
+                }
+                return diffMatrix;
+            }
+            return null;
         }
     }
 }
