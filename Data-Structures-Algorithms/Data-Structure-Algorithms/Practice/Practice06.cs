@@ -1,141 +1,117 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace DataStructuresAlgorithms.Practice
 {
     public class Practice06
     {
-        /*
-        You are given two matrices A & B of same size, you have to return
-        another matrix which is the sum of A and B.
-         */
-        public List<List<int>> SumOfTwoMatrices(List<List<int>> A, List<List<int>> B)
+        public List<List<int>> MarkZero(List<List<int>> A)
         {
-            if (A.Count <= 0 && A[0].Count <= 0) return null;
-            int rows = A.Count;
-            int cols = A[0].Count;
-            for (int i = 0; i < rows; i++)
+            int R = A.Count;
+            int C = A[0].Count;
+            var rows = new HashSet<int>();
+            var cols = new HashSet<int>();
+
+            // Essentially, we mark the rows and columns that are to be made zero
+            for (int i = 0; i < R; i++)
             {
-                for (int j = 0; j < cols; j++)
+                for (int j = 0; j < C; j++)
                 {
-                    A[i][j] = A[i][j] + B[i][j];
+                    if (A[i][j] == 0)
+                    {
+                        rows.Add(i);
+                        cols.Add(j);
+                    }
+                }
+            }
+
+            // Iterate over the array once again and using the rows and cols sets, update the elements.
+            for (int i = 0; i < R; i++)
+            {
+                for (int j = 0; j < C; j++)
+                {
+                    if (rows.Contains(i) || cols.Contains(j))
+                    {
+                        A[i][j] = 0;
+                    }
                 }
             }
             return A;
         }
-        /*
-         You are given a 2D integer matrix A, return a 1D integer vector containing column-wise sums of original matrix.
-         */
-        public List<int> SumRowWiseMatrix(List<List<int>> A)
-        {
-            if (A.Count <= 0 && A[0].Count <= 0) return null;
-            var sumMatrix = new List<int>();
-            for (int i = 0; i < A[0].Count; i++)
-            {
-                int sum = 0;
-                for (int j = 0; j < A.Count; j++)
-                {
-                    sum += A[j][i];
-                }
-                sumMatrix.Add(sum);
-            }
 
-            return sumMatrix;
+        //TODO: Understand it 
+        public List<List<int>> GenerateMatrix(int A)
+        {
+            var result = new int[A,A];
+            int cnt = 1;
+            for (int layer = 0; layer < (A + 1) / 2; layer++)
+            {
+                // direction 1 - traverse from left to right
+                for (int ptr = layer; ptr < A - layer; ptr++)
+                {
+                    result[layer,ptr] = cnt++;
+                }
+                // direction 2 - traverse from top to bottom
+                for (int ptr = layer + 1; ptr < A - layer; ptr++)
+                {
+                    result[ptr, A - layer - 1] = cnt++;
+                }
+                // direction 3 - traverse from right to left
+                for (int ptr = layer + 1; ptr < A - layer; ptr++)
+                {
+                    result[A - layer - 1,A - ptr - 1] = cnt++;
+                }
+                // direction 4 - traverse from bottom to top
+                for (int ptr = layer + 1; ptr < A - layer - 1; ptr++)
+                {
+                    result[A - ptr - 1 ,layer] = cnt++;
+                }
+            }
+            var list = new List<List<int>>();
+            
+            for (int i = 0; i < A; i++)
+            {
+                var row = new List<int>();
+                for (int j = 0; j < A; j++)
+                    row.Add(result[i,j]);
+                list.Add(row);
+            }
+            return list;
         }
 
-        /*
-         Give a N * N square matrix A, return an array of its anti-diagonals. Look at the example for more details.
-            1 2 3
-            4 5 6
-            7 8 9
-         */
-        public List<List<int>> AntiDiagonalArray(List<List<int>> A)
+        //TODO:
+        public void rotate(List<List<int>> a)
         {
-            var array = new List<List<int>>();
-            int n = A.Count;
-            for (int j = 0; j < n; j++)
-            {
-                int I = 0, J = j;
-                var row = new List<int>();
-                while(I < n && J >= 0)
-                {
-                    row.Add(A[I][J]);
-                    I++;
-                    J--;
-                }
-                while (n - row.Count > 0) row.Add(0);
-                array.Add(row);
-            }
-
-            for(int i=1;i< n; i++)
-            {
-                int I = i, J = n-1;
-                var row = new List<int>();
-                while (I < n && J >= 0)
-                {
-                    row.Add(A[I][J]);
-                    I++;
-                    J--;
-                }
-                while (n - row.Count > 0) row.Add(0);
-                array.Add(row);
-            }
-
-            return array;
+            transpose(a);
+            reflect(a);
         }
 
-
-        /*
-         You are given two integer matrices A(having M X N size) and B(having N X P). 
-         You have to multiply matrix A with B and return the resultant matrix. (i.e. return the matrix AB).
-         */
-        public List<List<int>> MultiplyTwoMatrices(List<List<int>> A, List<List<int>> B)
+        public void transpose(List<List<int>> matrix)
         {
-            if ((A.Count <= 0 && A[0].Count <= 0) || B.Count <= 0 && B[0].Count <= 0) return null;
-            // A = M X N, B = N X P
-            var multipliedMatrix = new List<List<int>>();
-            int n = B.Count;
-            int m = A.Count;
-            int p = B[0].Count;
-            for (int k = 0; k < n; k++)
+            int n = matrix.Count;
+            for (int i = 0; i < n; i++)
             {
-                int i = 0, j= 0, sum =0;
-                var row = new List<int>();
-                while ( i < m)
+                for (int j = i + 1; j < n; j++)
                 {
-                    while (j < p)
-                    {
-                        sum += A[i][k] * B[k][j];
-                        j++;
-                    }
-                    row.Add(sum);
-                    i++;
+                    int tmp = matrix[j][i];
+                    matrix[j][i] = matrix[i][j];
+                    matrix[i][j] = tmp;
                 }
-                multipliedMatrix.Add(row);
             }
-
-            return multipliedMatrix;
         }
 
-        public List<List<int>> Substract(List<List<int>> A, List<List<int>> B)
+        public void reflect(List<List<int>> matrix)
         {
-            if(A != null && A.Count >= 0 )
+            int n = matrix.Count;
+            for (int i = 0; i < n; i++)
             {
-                var diffMatrix = new List<List<int>>();
-                int cols = A[0].Count;
-                int rows = A.Count;
-                for (int i = 0; i < rows; i++)
+                for (int j = 0; j < n / 2; j++)
                 {
-                    var row = new List<int>();
-                    for (int j = 0; j < cols; j++)
-                    {
-                        row.Add(A[i][j] - B[i][j]);
-                    }
-                    diffMatrix.Add(row);
+                    int tmp = matrix[i][j];
+                    matrix[i][j] = matrix[i][n - j - 1];
+                    matrix[i][n - j - 1] = tmp;
                 }
-                return diffMatrix;
             }
-            return null;
         }
     }
 }
