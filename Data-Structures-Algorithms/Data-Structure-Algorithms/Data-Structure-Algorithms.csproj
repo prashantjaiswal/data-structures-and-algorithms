@@ -12,6 +12,7 @@
     <Folder Include="Algo-Patterns\02-TwoPointers\" />
     <Folder Include="Leetcode\Hard\" />
     <Folder Include="Practice\" />
+    <Folder Include="LLD\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Algo-Patterns\" />
@@ -33,5 +34,6 @@
     <None Remove="Algo-Patterns\16-TopologicalSort\" />
     <None Remove="Leetcode\Hard\" />
     <None Remove="Practice\" />
+    <None Remove="LLD\" />
   </ItemGroup>
 </Project>

@@ -97,11 +97,11 @@ namespace Test_Data_Structure_Algorithms.Practice
             var result = practice.longestPalindrome("aaaabaaa");
         }
 
-        [Fact]
+       /* [Fact]
         public void Testpow()
         {
             Practice07 practice = new Practice07();//
             var result = practice.pow(-1,1,20);
-        }
+        }*/
     }
 }
